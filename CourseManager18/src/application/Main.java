@@ -9,7 +9,7 @@ import javafx.scene.layout.BorderPane;
 public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
-		System.out.print("In start\n");
+		System.out.print("In start");
 		try {
 			BorderPane root = new BorderPane();
 			Scene scene = new Scene(root,400,400);
