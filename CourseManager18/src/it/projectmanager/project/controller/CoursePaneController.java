@@ -12,8 +12,10 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 /*Remember to:
- * Link the controller to the view in the SceneBuilder
+ * Link the controller to the view in the SceneBuilder Controller menu
  * Associate every grafic element with its SceneBuilder counterpart by using fx:id inside the application
+ * If needed, Buttons and other FX entities can be referenced here in the code, but they require and fx:id and
+ * an @FXML annotation. Try to avoid this approach if possible.
  */
 public class CoursePaneController {
 
