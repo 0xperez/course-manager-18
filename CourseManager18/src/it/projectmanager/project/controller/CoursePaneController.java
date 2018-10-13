@@ -1,4 +1,4 @@
-package it.projectmanager.project.view;
+package it.projectmanager.project.controller;
 
 import it.projectmanager.project.MainClass;
 import it.projectmanager.project.model.Course;

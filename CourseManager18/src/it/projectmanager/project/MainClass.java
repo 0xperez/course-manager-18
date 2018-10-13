@@ -10,8 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import it.projectmanager.project.controller.CoursePaneController;
 import it.projectmanager.project.model.*;
-import it.projectmanager.project.view.CoursePaneController;
 
 public class MainClass extends Application {
 	
