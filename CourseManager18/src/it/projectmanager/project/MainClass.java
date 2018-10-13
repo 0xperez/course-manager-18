@@ -10,7 +10,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import it.projectmanager.project.controller.CoursePaneController;
+import it.projectmanager.project.controller.*;
 import it.projectmanager.project.model.*;
 
 public class MainClass extends Application {
@@ -67,7 +67,9 @@ public class MainClass extends Application {
 		}
 	}
 	
-	
+	//TODO do something about this class' logic.
+	//Same method is repeated multiple times with slight changes each time I have to load a panel.
+	//Maybe a more generic Loader class would be better, leaving only the main stage here.
 	public void showCoursePane() {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(MainClass.class.getResource("view/CoursePane.fxml"));
@@ -80,6 +82,22 @@ public class MainClass extends Application {
 			controller.setMain(this);
 		} catch (IOException e) {
 			System.err.println("Exception while loading course pane.");
+			e.printStackTrace();
+		}
+	}
+	
+	
+	public void showEditCoursePane() {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(MainClass.class.getResource("view/CourseEditPane.fxml"));
+		AnchorPane courseEditPane = null;
+		try {
+			courseEditPane = (AnchorPane) loader.load();
+			rootPane.setCenter(courseEditPane);
+			CourseEditController controller = loader.getController();
+			controller.setMain(this);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

@@ -67,7 +67,7 @@
                   <ButtonBar layoutX="79.0" layoutY="270.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
                     <buttons>
                       <Button mnemonicParsing="false" text="Add new" />
-                        <Button mnemonicParsing="false" text="Edit" />
+                        <Button mnemonicParsing="false" onAction="#openEditPane" text="Edit" />
                         <Button fx:id="customDelete" mnemonicParsing="false" onAction="#deleteCourse" text="Delete" />
                     </buttons>
                   </ButtonBar>

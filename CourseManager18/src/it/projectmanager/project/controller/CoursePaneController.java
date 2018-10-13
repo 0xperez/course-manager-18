@@ -151,5 +151,12 @@ public class CoursePaneController {
 			
 		}
 	}
+	
+	@FXML
+	public void openEditPane() {
+		
+		main.showEditCoursePane();
+		
+	}
 
 }
