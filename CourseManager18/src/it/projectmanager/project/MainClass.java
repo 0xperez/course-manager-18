@@ -87,7 +87,7 @@ public class MainClass extends Application {
 	}
 	
 	
-	public void showEditCoursePane() {
+	public void showEditCoursePane(Course c) {
 		FXMLLoader loader = new FXMLLoader();
 		loader.setLocation(MainClass.class.getResource("view/CourseEditPane.fxml"));
 		AnchorPane courseEditPane = null;
@@ -96,6 +96,7 @@ public class MainClass extends Application {
 			rootPane.setCenter(courseEditPane);
 			CourseEditController controller = loader.getController();
 			controller.setMain(this);
+			controller.setCourse(c);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

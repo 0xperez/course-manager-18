@@ -154,8 +154,11 @@ public class CoursePaneController {
 	
 	@FXML
 	public void openEditPane() {
-		
-		main.showEditCoursePane();
+		Course selectedCourse = courseTable.getSelectionModel().getSelectedItem();
+		if(selectedCourse != null)
+			main.showEditCoursePane(selectedCourse);
+		else
+			DialogUtils.showWarning("No selection", "Please select a course to edit.");
 		
 	}
 
