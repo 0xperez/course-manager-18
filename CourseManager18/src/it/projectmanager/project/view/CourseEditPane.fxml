@@ -48,8 +48,8 @@
       </GridPane>
       <ButtonBar layoutX="436.0" layoutY="302.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
         <buttons>
-          <Button mnemonicParsing="false" onAction="#editCourse" text="OK" />
-            <Button mnemonicParsing="false" text="Cancel" />
+          <Button fx:id="editButton" disable="true" mnemonicParsing="false" onAction="#editClick" text="Edit" />
+            <Button mnemonicParsing="false" onAction="#cancelClick" text="Cancel" />
         </buttons>
       </ButtonBar>
    </children>
