@@ -4,6 +4,7 @@ import it.projectmanager.project.MainClass;
 import it.projectmanager.project.model.Course;
 import it.projectmanager.project.utils.CourseEditValidator;
 import it.projectmanager.project.utils.DialogUtils;
+import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
@@ -49,6 +50,7 @@ public class CourseEditController {
 	
 	private boolean modified;
 	
+	
 	private CourseEditValidator validator;
 	
 	
@@ -76,6 +78,14 @@ public class CourseEditController {
 				if(!modified) {
 					editButton.setDisable(false);
 					modified = true;
+				}
+				//Reset color to black because after validation is red.
+				//TODO maybe create a separate class of this listener since it has many features.
+				//Find a more efficient way to restore the color property?
+				else {
+					StringProperty p = (StringProperty) observable;
+					TextField txt = (TextField) p.getBean();
+					txt.setStyle("-fx-text-inner-color: black;");
 				}
 			}
 		};

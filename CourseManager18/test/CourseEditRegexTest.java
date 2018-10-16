@@ -29,11 +29,20 @@ class CourseEditRegexTest {
 	}
 	
 	
-	@Test
-	void testName4() {
-		boolean res = "Java, C++ and other languages".matches("^[a-zA-Z0-9\\+\\, ]{1,50}$");
+	void testProf1() {
+		boolean res = "John Master".matches("^[a-zA-Z ]{1,40}$");
 		assertTrue(res);
+	}
 	
+	void testProf2() {
+		boolean res = "Prof. Master".matches("^[a-zA-Z ]{1,40}$");
+		assertFalse(res);
+	}
+	
+	void testProf3() {
+		boolean res = "".matches("^[a-zA-Z ]{1,40}$");
+		assertFalse(res);
+	}
 	
 
 }
