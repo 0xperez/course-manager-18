@@ -168,6 +168,43 @@ public class CourseEditController {
 	private void goBack() {
 		main.showCoursePane();
 	}
+
+	public TextField getName() {
+		return name;
+	}
+
+	public TextField getYear() {
+		return year;
+	}
+
+	public TextField getProfessor() {
+		return professor;
+	}
+
+	public TextField getMark() {
+		return mark;
+	}
+
+	public TextField getCredits() {
+		return credits;
+	}
+
+	public TextField getField() {
+		return field;
+	}
+
+	public TextField getFolder() {
+		return folder;
+	}
+
+	public TextField getProject() {
+		return project;
+	}
+	
+	
+	
+	
+	
 	
 	
 	
