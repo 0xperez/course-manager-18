@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane prefHeight="350.0" prefWidth="650.0" stylesheets="@darkdefault.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.projectmanager.project.controller.CourseEditController">
+<AnchorPane prefHeight="350.0" prefWidth="650.0" stylesheets="@darkdefault.css" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="it.projectmanager.project.controller.CourseAddController">
    <children>
       <GridPane layoutX="225.0" layoutY="85.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="30.0">
         <columnConstraints>
@@ -48,7 +48,7 @@
       </GridPane>
       <ButtonBar layoutX="436.0" layoutY="302.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
         <buttons>
-          <Button fx:id="editButton" disable="true" mnemonicParsing="false" onAction="#editClick" text="Edit" />
+          <Button fx:id="addButton" disable="false" mnemonicParsing="false" onAction="#addClick" text="Add" />
             <Button mnemonicParsing="false" onAction="#cancelClick" text="Cancel" />
         </buttons>
       </ButtonBar>

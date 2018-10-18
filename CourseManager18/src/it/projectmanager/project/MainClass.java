@@ -23,13 +23,14 @@ public class MainClass extends Application {
 	
 	
 	public MainClass() {
+		/*
 		courses.add(new Course("Analysis", 1));
 		courses.add(new Course("Data Structures", 1));
 		courses.add(new Course("Introduction to Programming", 1));
 		courses.add(new Course("Architecture of Digital Systems", 1));
 		courses.add(new Course("English", 1));
 		courses.add(new Course("German", 1));
-	
+		*/
 	}
 	
 	
@@ -102,6 +103,23 @@ public class MainClass extends Application {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	public void showAddCoursePane() {
+		FXMLLoader loader = new FXMLLoader();
+		loader.setLocation(MainClass.class.getResource("view/CourseAddPane.fxml"));
+		AnchorPane courseAddPane = null;
+		try {
+			courseAddPane = (AnchorPane) loader.load();
+			rootPane.setCenter(courseAddPane);
+			CourseAddController controller = loader.getController();
+			controller.setMain(this);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	
 	
 

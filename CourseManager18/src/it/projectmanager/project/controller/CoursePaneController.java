@@ -161,5 +161,11 @@ public class CoursePaneController {
 			DialogUtils.showWarning("No selection", "Please select a course to edit.");
 		
 	}
+	
+	
+	@FXML
+	public void openAddPane() {
+		main.showAddCoursePane();
+	}
 
 }

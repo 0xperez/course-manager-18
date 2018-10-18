@@ -1,16 +1,16 @@
 package it.projectmanager.project.utils;
-import it.projectmanager.project.controller.CourseEditController;
+
+import it.projectmanager.project.controller.CourseAddController;
 import javafx.scene.control.TextField;
 
-//https://stackoverflow.com/questions/24702542/how-to-change-the-color-of-text-in-javafx-textfield
-//TODO: set invalid textfield in red?
-public class CourseEditValidator {
-	
-	private CourseEditController c;
+public class CourseAddValidator {
 	
 	
-	public CourseEditValidator(CourseEditController controller) {
-		this.c = controller;
+	private CourseAddController c;
+	
+	
+	public CourseAddValidator(CourseAddController c) {
+		this.c = c;
 	}
 	
 	
@@ -25,7 +25,7 @@ public class CourseEditValidator {
 		TextField txt = c.getName();
 		boolean res = txt.getText().matches("^[a-zA-Z0-9\\+\\, ]{1,50}$");
 		if(!res) {
-			c.setWrong(txt);
+			setWrong(txt);
 		}
 		return res;
 	}
@@ -39,11 +39,11 @@ public class CourseEditValidator {
 			year = Integer.parseInt(txt.getText());
 			res = year > 0 && year < 3;
 			if(!res)
-				c.setWrong(txt);
+				setWrong(txt);
 			
 		}
 		catch(NumberFormatException e) {
-			c.setWrong(txt);
+			setWrong(txt);
 			return false;
 		}
 		return res;
@@ -54,7 +54,7 @@ public class CourseEditValidator {
 		TextField txt = c.getProfessor();
 		boolean res = txt.getText().matches("^[a-zA-Z0-9 ]{1,40}$");
 		if(!res)
-			c.setWrong(txt);
+			setWrong(txt);
 		return res;
 	}
 	
@@ -68,7 +68,7 @@ public class CourseEditValidator {
 			res = mark >= 0 && mark <= 31;
 		}
 		catch(NumberFormatException e) {
-			c.setWrong(txt);
+			setWrong(txt);
 			return false;
 		}
 		return res;
@@ -83,10 +83,10 @@ public class CourseEditValidator {
 			creds = Integer.parseInt(c.getCredits().getText());
 			res = creds >=2 && creds <= 12;
 			if(!res)
-				c.setWrong(txt);
+				setWrong(txt);
 		}
 		catch(NumberFormatException e) {
-			c.setWrong(txt);
+			setWrong(txt);
 			return false;
 		}
 		return res;
@@ -110,7 +110,13 @@ public class CourseEditValidator {
 		return true;
 	}
 	
-	
+	/**
+	 * Changes the color of a textfield to red, to notify user of a wrong input.
+	 * @param txt the TextField whose color has to be changed
+	 */
+	public void setWrong(TextField txt) {
+		txt.setStyle("-fx-text-inner-color: red;");
+	}
 	
 	
 

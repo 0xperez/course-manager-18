@@ -12,37 +12,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
 
-public class CourseEditController {
-	
-	@FXML
-	private TextField name;
-	
-	@FXML
-	private TextField year;
-	
-	@FXML
-	private TextField professor;
-	
-	@FXML
-	private TextField mark;
-	
-	@FXML
-	private TextField credits;
-	
-	@FXML
-	private TextField field;
-	
-	@FXML
-	private TextField folder;
-	
-	@FXML
-	private TextField project;
+public class CourseEditController extends CourseController {
 	
 	@FXML
 	private Button editButton;
 	
-	
-	private Course course;
+	/* Other references */
+	//private Course course;
 
 	
 	private MainClass main;
@@ -82,6 +58,7 @@ public class CourseEditController {
 				//Reset color to black because after validation is red.
 				//TODO maybe create a separate class of this listener since it has many features.
 				//Find a more efficient way to restore the color property?
+				//https://stackoverflow.com/questions/16549296/how-perform-task-on-javafx-textfield-at-onfocus-and-outfocus
 				else {
 					StringProperty p = (StringProperty) observable;
 					TextField txt = (TextField) p.getBean();
@@ -99,7 +76,6 @@ public class CourseEditController {
 		project.textProperty().addListener(modListener);
 	}
 	
-	
 	/**
 	 * Sets the main class to be able to switch back to the previous pane.
 	 * @param main
@@ -115,19 +91,33 @@ public class CourseEditController {
 	 */
 	public void setCourse(Course c) {
 		
-		this.course = c;
+		super.setCourse(c);
 		
-		name.setText(c.getName());
-		year.setText(c.getYear()+ "");
-		professor.setText(c.getProfessor());
-		mark.setText(c.getMark() + "");
-		credits.setText(c.getCredits() + "");
-		field.setText(c.getField());
-		folder.setText(c.getFolder());
-		project.setText(c.getProject());
+		showCourse(c);
+		
 		//set change listeners to determine if the course has changed
 		setListeners();
 		
+	}
+	
+	
+	
+/* Define button clicks */
+	/**
+	 * Called when edit button is clicked. Input is validated and edited if
+	 */
+	@FXML
+	private void editClick() {
+		if(validator.isValid()) {
+			System.out.println("DEBUG: course = " + course.toString());
+			System.out.println("name = " + name.getText());
+			editCourse();
+			DialogUtils.showInfo("Course Manager 2018", "Course information edited succesfully!");
+			goBack();
+		}
+		else {
+			DialogUtils.showWarning("Invalid input", "Please check information entered.");
+		}
 	}
 	
 	/**
@@ -149,7 +139,8 @@ public class CourseEditController {
 	/**
 	 * Sets the course fields, overwriting 
 	 */
-	private void edit() {
+	private void editCourse() {
+		System.out.println("DEBUG: course = " + course.toString() + ", name = " + name.getText());
 		course.setName(name.getText());
 		course.setYear(Integer.parseInt(year.getText()));
 		course.setProfessor(professor.getText());
@@ -158,59 +149,18 @@ public class CourseEditController {
 		course.setField(field.getText());
 		course.setFolder(folder.getText());
 		course.setProject(project.getText());
-		
-		DialogUtils.showInfo("Course Manager 2018", "Course information edited succesfully!");
-		
-		goBack();
 	}
 	
-	@FXML
-	private void editClick() {
-		if(validator.isValid()) {
-			edit();
-		}
-		else {
-			DialogUtils.showWarning("Invalid input", "Please check information entered.");
-		}
-	}
-	
+
 	
 	private void goBack() {
 		main.showCoursePane();
 	}
-
-	public TextField getName() {
-		return name;
-	}
-
-	public TextField getYear() {
-		return year;
-	}
-
-	public TextField getProfessor() {
-		return professor;
-	}
-
-	public TextField getMark() {
-		return mark;
-	}
-
-	public TextField getCredits() {
-		return credits;
-	}
-
-	public TextField getField() {
-		return field;
-	}
-
-	public TextField getFolder() {
-		return folder;
-	}
-
-	public TextField getProject() {
-		return project;
-	}
 	
+	
+	public void setWrong(TextField field) {
+		field.setStyle("-fx-text-inner-color: red;");
+	}
 	
 	
 	
