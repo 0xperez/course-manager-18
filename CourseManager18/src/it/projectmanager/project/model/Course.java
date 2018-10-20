@@ -30,6 +30,7 @@ public class Course {
     	this.folder = new SimpleStringProperty("/Desktop/Analysis");
     	this.project = new SimpleStringProperty("NO");
     }
+    
 
 
 	public String getName() {
@@ -149,13 +150,6 @@ public class Course {
 	public StringProperty projectProperty() {
 		return project;
 	}
-    
-    
-    
-    
-    
-    
-	
-	
+		
 
 }

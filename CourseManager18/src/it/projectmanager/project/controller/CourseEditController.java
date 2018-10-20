@@ -2,7 +2,6 @@ package it.projectmanager.project.controller;
 
 import it.projectmanager.project.MainClass;
 import it.projectmanager.project.model.Course;
-import it.projectmanager.project.utils.CourseValidator;
 import it.projectmanager.project.utils.DialogUtils;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
@@ -17,18 +16,15 @@ public class CourseEditController extends CourseController {
 	@FXML
 	private Button editButton;
 	
-	/* Other references */
-	//private Course course;
-
-	
 	private MainClass main;
 	
+	private CourseInputListener modListener;
 	
-	private boolean modified;
 	
 	
 	public CourseEditController(){
 		System.out.println("Constructer called");
+		modListener = new CourseInputListener(this);
 		
 	}
 	
@@ -39,11 +35,22 @@ public class CourseEditController extends CourseController {
 	}
 	
 	
+	
+	public void setEnabled(boolean enabled) {
+		if(!enabled)
+			editButton.setDisable(true);
+		else
+			editButton.setDisable(false);
+		
+		this.enabled = enabled;
+	}
+	
+	
 	/**
 	 * Add a listener to each textfield to check whether a field has been modifed or not. If so, the EDIT button gets enabled.
 	 */
 	private void setListeners() {
-		
+		/*
 		ChangeListener<String> modListener = new ChangeListener<String>() {
 			@Override
 			public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -61,7 +68,7 @@ public class CourseEditController extends CourseController {
 					txt.setStyle("-fx-text-inner-color: black;");
 				}
 			}
-		};
+		};*/
 		name.textProperty().addListener(modListener);
 		year.textProperty().addListener(modListener);
 		professor.textProperty().addListener(modListener);

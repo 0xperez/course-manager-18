@@ -48,7 +48,7 @@
       </GridPane>
       <ButtonBar layoutX="436.0" layoutY="302.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
         <buttons>
-          <Button fx:id="addButton" disable="false" mnemonicParsing="false" onAction="#addClick" text="Add" />
+          <Button fx:id="addButton" disable="true" mnemonicParsing="false" onAction="#addClick" text="Add" />
             <Button mnemonicParsing="false" onAction="#cancelClick" text="Cancel" />
         </buttons>
       </ButtonBar>

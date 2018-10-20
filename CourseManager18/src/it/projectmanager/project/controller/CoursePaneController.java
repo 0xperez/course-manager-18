@@ -102,7 +102,7 @@ public class CoursePaneController {
 	private void showCourseDetails(Course c) {
 
 		if (c != null) {
-
+			System.out.println(c);
 			nameLbl.setText(c.getName());
 			yearLbl.setText(c.getYear() + "");
 			professorLbl.setText(c.getProfessor());

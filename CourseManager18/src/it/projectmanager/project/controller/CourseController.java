@@ -36,6 +36,10 @@ public class CourseController {
 	
 	protected CourseValidator validator;
 	
+	protected boolean enabled = false;
+	
+	protected boolean modified = false;
+	
 	
 	public CourseController() {
 		course = new Course();
@@ -139,6 +143,24 @@ public class CourseController {
 	
 	public void setValidator(CourseValidator validator) {
 		this.validator = validator;
+	}
+	
+	
+	public boolean isEnabled() {
+		return enabled;
+	}
+	
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+	
+	
+	public boolean isModified() {
+		return modified;
+	}
+	
+	public void setModified(boolean modified) {
+		this.modified = modified;
 	}
 
 	
