@@ -2,7 +2,7 @@ package it.projectmanager.project.controller;
 
 import it.projectmanager.project.MainClass;
 import it.projectmanager.project.model.Course;
-import it.projectmanager.project.utils.CourseEditValidator;
+import it.projectmanager.project.utils.CourseValidator;
 import it.projectmanager.project.utils.DialogUtils;
 import javafx.beans.property.StringProperty;
 import javafx.beans.value.ChangeListener;
@@ -27,12 +27,8 @@ public class CourseEditController extends CourseController {
 	private boolean modified;
 	
 	
-	private CourseEditValidator validator;
-	
-	
 	public CourseEditController(){
 		System.out.println("Constructer called");
-		validator = new CourseEditValidator(this);
 		
 	}
 	
@@ -155,11 +151,6 @@ public class CourseEditController extends CourseController {
 	
 	private void goBack() {
 		main.showCoursePane();
-	}
-	
-	
-	public void setWrong(TextField field) {
-		field.setStyle("-fx-text-inner-color: red;");
 	}
 	
 	

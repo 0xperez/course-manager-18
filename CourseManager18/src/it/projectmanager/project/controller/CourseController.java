@@ -1,6 +1,7 @@
 package it.projectmanager.project.controller;
 
 import it.projectmanager.project.model.Course;
+import it.projectmanager.project.utils.CourseValidator;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 
@@ -33,9 +34,12 @@ public class CourseController {
 	
 	protected Course course;
 	
+	protected CourseValidator validator;
+	
 	
 	public CourseController() {
 		course = new Course();
+		validator = new CourseValidator(this);
 	}
 	
 	public void showCourse(Course c) {
@@ -47,6 +51,12 @@ public class CourseController {
 		field.setText(c.getField());
 		folder.setText(c.getFolder());
 		project.setText(c.getProject());
+	}
+	
+	
+	public void highlight(TextField t, String cssColorId) {
+		String style = "-fx-text-inner-color: " + cssColorId.trim() + ";";
+		t.setStyle(style);
 	}
 
 	public TextField getName() {
@@ -119,6 +129,16 @@ public class CourseController {
 
 	public void setCourse(Course c) {
 		this.course = c;
+	}
+	
+	
+	public CourseValidator getValidator() {
+		return validator;
+	}
+	
+	
+	public void setValidator(CourseValidator validator) {
+		this.validator = validator;
 	}
 
 	

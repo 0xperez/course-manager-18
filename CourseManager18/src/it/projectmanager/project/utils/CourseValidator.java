@@ -1,15 +1,14 @@
 package it.projectmanager.project.utils;
-import it.projectmanager.project.controller.CourseEditController;
+import it.projectmanager.project.controller.CourseController;
 import javafx.scene.control.TextField;
 
-//https://stackoverflow.com/questions/24702542/how-to-change-the-color-of-text-in-javafx-textfield
-//TODO: set invalid textfield in red?
-public class CourseEditValidator {
+
+public class CourseValidator {
 	
-	private CourseEditController c;
+	private CourseController c;
 	
 	
-	public CourseEditValidator(CourseEditController controller) {
+	public CourseValidator(CourseController controller) {
 		this.c = controller;
 	}
 	
@@ -25,7 +24,7 @@ public class CourseEditValidator {
 		TextField txt = c.getName();
 		boolean res = txt.getText().matches("^[a-zA-Z0-9\\+\\, ]{1,50}$");
 		if(!res) {
-			c.setWrong(txt);
+			c.highlight(txt, "red");
 		}
 		return res;
 	}
@@ -39,11 +38,11 @@ public class CourseEditValidator {
 			year = Integer.parseInt(txt.getText());
 			res = year > 0 && year < 3;
 			if(!res)
-				c.setWrong(txt);
+				c.highlight(txt, "red");
 			
 		}
 		catch(NumberFormatException e) {
-			c.setWrong(txt);
+			c.highlight(txt, "red");
 			return false;
 		}
 		return res;
@@ -54,7 +53,7 @@ public class CourseEditValidator {
 		TextField txt = c.getProfessor();
 		boolean res = txt.getText().matches("^[a-zA-Z0-9 ]{1,40}$");
 		if(!res)
-			c.setWrong(txt);
+			c.highlight(txt, "red");
 		return res;
 	}
 	
@@ -68,7 +67,7 @@ public class CourseEditValidator {
 			res = mark >= 0 && mark <= 31;
 		}
 		catch(NumberFormatException e) {
-			c.setWrong(txt);
+			c.highlight(txt, "red");
 			return false;
 		}
 		return res;
@@ -83,10 +82,10 @@ public class CourseEditValidator {
 			creds = Integer.parseInt(c.getCredits().getText());
 			res = creds >=2 && creds <= 12;
 			if(!res)
-				c.setWrong(txt);
+				c.highlight(txt, "red");
 		}
 		catch(NumberFormatException e) {
-			c.setWrong(txt);
+			c.highlight(txt, "red");
 			return false;
 		}
 		return res;

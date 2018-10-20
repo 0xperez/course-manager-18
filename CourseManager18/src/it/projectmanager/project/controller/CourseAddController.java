@@ -1,9 +1,7 @@
 package it.projectmanager.project.controller;
 
 import it.projectmanager.project.MainClass;
-import it.projectmanager.project.model.Course;
-import it.projectmanager.project.utils.CourseAddValidator;
-import it.projectmanager.project.utils.CourseEditValidator;
+import it.projectmanager.project.utils.CourseValidator;
 import it.projectmanager.project.utils.DialogUtils;
 import javafx.fxml.FXML;
 
@@ -11,13 +9,8 @@ public class CourseAddController extends CourseController {
 	
 	private MainClass main;
 	
-	private CourseAddValidator validator;
 	
-	
-	
-	public CourseAddController() {
-		validator = new CourseAddValidator(this);
-	}
+	public CourseAddController() {}
 	
 	/* Button clicks */
 	@FXML
