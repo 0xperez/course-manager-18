@@ -64,11 +64,11 @@
                         <Label fx:id="projectLbl" text="Label" GridPane.columnIndex="1" GridPane.rowIndex="7" />
                      </children>
                   </GridPane>
-                  <ButtonBar layoutX="79.0" layoutY="270.0" prefHeight="40.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                  <ButtonBar layoutX="79.0" layoutY="270.0" prefHeight="40.0" prefWidth="315.0" AnchorPane.bottomAnchor="10.0" AnchorPane.rightAnchor="10.0">
                     <buttons>
                       <Button mnemonicParsing="false" onAction="#openAddPane" text="Add new" />
                         <Button mnemonicParsing="false" onAction="#openEditPane" text="Edit" />
-                        <Button fx:id="customDelete" mnemonicParsing="false" onAction="#deleteCourse" text="Delete" />
+                        <Button fx:id="customDelete" mnemonicParsing="false" onAction="#deleteCourse" prefHeight="32.0" text="Delete" />
                     </buttons>
                   </ButtonBar>
                </children>
