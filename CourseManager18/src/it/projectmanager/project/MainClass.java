@@ -7,6 +7,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
@@ -23,14 +24,14 @@ public class MainClass extends Application {
 	
 	
 	public MainClass() {
-		/*
+		
 		courses.add(new Course("Analysis", 1));
 		courses.add(new Course("Data Structures", 1));
 		courses.add(new Course("Introduction to Programming", 1));
 		courses.add(new Course("Architecture of Digital Systems", 1));
 		courses.add(new Course("English", 1));
 		courses.add(new Course("German", 1));
-		*/
+		
 	}
 	
 	
@@ -46,6 +47,7 @@ public class MainClass extends Application {
 		
 		this.primaryStage = primaryStage;
 		this.primaryStage.setTitle("MyCourseManager");
+		this.primaryStage.getIcons().add(new Image("file:res/img/icon.PNG"));
 		this.loadRootPane();
 		this.showCoursePane();
 		
